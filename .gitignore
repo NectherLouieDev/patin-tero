@@ -1,0 +1,113 @@
+
+# ============================================
+# GODOT 4.x — .gitignore
+# ============================================
+
+# Godot generated cache and imported resources
+.godot/
+
+# Godot temporary files
+*.tmp
+*.temp
+
+# Godot export credentials (sensitive)
+.export_credentials.cfg
+
+# Exported packages and builds
+/export/
+/exports/
+/build/
+/builds/
+/dist/
+
+*.pck
+*.apk
+*.aab
+*.ipa
+*.exe
+*.app
+*.dmg
+*.msi
+
+# Godot Mono / C# generated files
+.mono/
+[Bb]in/
+[Oo]bj/
+*.csproj.user
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Godot generated solutions (optional)
+# Uncomment only if you regenerate these files
+# *.sln
+# *.csproj
+
+# IDE and editor settings
+.vscode/
+.idea/
+.vs/
+*.code-workspace
+
+# Rider / JetBrains
+*.sln.iml
+_ReSharper*/
+*.DotSettings.user
+
+# Vim / Emacs
+*.swp
+*.swo
+*~
+\#*\#
+
+# Visual Studio Code temporary files
+.history/
+
+# Operating system files
+.DS_Store
+.AppleDouble
+.LSOverride
+Thumbs.db
+Thumbs.db:encryptable
+Desktop.ini
+$RECYCLE.BIN/
+.Spotlight-V100/
+.Trashes/
+
+# Logs and crash dumps
+*.log
+logs/
+crash_dumps/
+*.dmp
+
+# Python tools (if used)
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+
+# Node.js tools (if used)
+node_modules/
+.npm/
+.pnpm-store/
+coverage/
+
+# Local environment files and secrets
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+*.p12
+*.keystore
+
+# Documentation folder
+/docs/
+
+# Local scratch / backup files
+*.bak
+*.backup
+*.orig
+*.rej
