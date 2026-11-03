@@ -11,3 +11,10 @@ These policies make the isolated simulation testable. They are not final gamepla
 - TAUNT and SCARE consume time but have no gameplay effect until their rules are approved.
 - No arena timeout is imposed in this milestone. Automated runs use a caller supplied tick limit.
 
+## Milestone 3 provisional deployment policies
+
+- The camera transform and 45° field of view in `scenes/debug/simulation_test.tscn` are the visual reference for deployment and future arena scenes, per the developer's direction.
+- The planning test has one player offense arena and one player defense arena. The bench contains one test instance of each of the nine placeholder definitions.
+- Runner anchors are the four cells of offense row 0. Horizontal guard anchors are defense rows 2, 4, and 6, with one guard per row. The center guard uses the separate marked lane anchor at logical `(-1, 3)`.
+- Battle uses stationary or repeating opponent test fixtures in the opposite role so both arena simulations can run. These fixtures are not tournament opponents or final formations.
+
