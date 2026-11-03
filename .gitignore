@@ -103,9 +103,6 @@ coverage/
 *.p12
 *.keystore
 
-# Documentation folder
-/docs/
-
 # Local scratch / backup files
 *.bak
 *.backup
