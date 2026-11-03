@@ -1,0 +1,346 @@
+{
+  "definitions": [
+    {
+      "role": "runner",
+      "name": "TEST runner 1",
+      "cards": [
+        {
+          "name": "TEST card 1",
+          "commands": [
+            "F",
+            "S",
+            "F",
+            "S"
+          ],
+          "id": "slot_1_card_1"
+        },
+        {
+          "name": "TEST card 2",
+          "commands": [
+            "L",
+            "R",
+            "F",
+            "S"
+          ],
+          "id": "slot_1_card_2"
+        },
+        {
+          "name": "TEST card 3",
+          "commands": [
+            "DR",
+            "L",
+            "F",
+            "T"
+          ],
+          "id": "slot_1_card_3"
+        }
+      ],
+      "placeholder": true,
+      "id": "slot_1"
+    },
+    {
+      "role": "runner",
+      "name": "TEST runner 2",
+      "cards": [
+        {
+          "name": "TEST card 1",
+          "commands": [
+            "F",
+            "S",
+            "F",
+            "S"
+          ],
+          "id": "slot_2_card_1"
+        },
+        {
+          "name": "TEST card 2",
+          "commands": [
+            "L",
+            "R",
+            "F",
+            "S"
+          ],
+          "id": "slot_2_card_2"
+        },
+        {
+          "name": "TEST card 3",
+          "commands": [
+            "DR",
+            "L",
+            "F",
+            "T"
+          ],
+          "id": "slot_2_card_3"
+        }
+      ],
+      "placeholder": true,
+      "id": "slot_2"
+    },
+    {
+      "role": "runner",
+      "name": "TEST runner 3",
+      "cards": [
+        {
+          "name": "TEST card 1",
+          "commands": [
+            "F",
+            "S",
+            "F",
+            "S"
+          ],
+          "id": "slot_3_card_1"
+        },
+        {
+          "name": "TEST card 2",
+          "commands": [
+            "L",
+            "R",
+            "F",
+            "S"
+          ],
+          "id": "slot_3_card_2"
+        },
+        {
+          "name": "TEST card 3",
+          "commands": [
+            "DR",
+            "L",
+            "F",
+            "T"
+          ],
+          "id": "slot_3_card_3"
+        }
+      ],
+      "placeholder": true,
+      "id": "slot_3"
+    },
+    {
+      "role": "runner",
+      "name": "TEST runner 4",
+      "cards": [
+        {
+          "name": "TEST card 1",
+          "commands": [
+            "F",
+            "S",
+            "F",
+            "S"
+          ],
+          "id": "slot_4_card_1"
+        },
+        {
+          "name": "TEST card 2",
+          "commands": [
+            "L",
+            "R",
+            "F",
+            "S"
+          ],
+          "id": "slot_4_card_2"
+        },
+        {
+          "name": "TEST card 3",
+          "commands": [
+            "DR",
+            "L",
+            "F",
+            "T"
+          ],
+          "id": "slot_4_card_3"
+        }
+      ],
+      "placeholder": true,
+      "id": "slot_4"
+    },
+    {
+      "role": "horizontal",
+      "name": "TEST horizontal 5",
+      "cards": [
+        {
+          "name": "TEST card 1",
+          "commands": [
+            "L",
+            "R",
+            "S",
+            "S"
+          ],
+          "id": "slot_5_card_1"
+        },
+        {
+          "name": "TEST card 2",
+          "commands": [
+            "R",
+            "L",
+            "C",
+            "S"
+          ],
+          "id": "slot_5_card_2"
+        },
+        {
+          "name": "TEST card 3",
+          "commands": [
+            "S",
+            "L",
+            "R",
+            "S"
+          ],
+          "id": "slot_5_card_3"
+        }
+      ],
+      "placeholder": true,
+      "id": "slot_5"
+    },
+    {
+      "role": "horizontal",
+      "name": "TEST horizontal 6",
+      "cards": [
+        {
+          "name": "TEST card 1",
+          "commands": [
+            "L",
+            "R",
+            "S",
+            "S"
+          ],
+          "id": "slot_6_card_1"
+        },
+        {
+          "name": "TEST card 2",
+          "commands": [
+            "R",
+            "L",
+            "C",
+            "S"
+          ],
+          "id": "slot_6_card_2"
+        },
+        {
+          "name": "TEST card 3",
+          "commands": [
+            "S",
+            "L",
+            "R",
+            "S"
+          ],
+          "id": "slot_6_card_3"
+        }
+      ],
+      "placeholder": true,
+      "id": "slot_6"
+    },
+    {
+      "role": "horizontal",
+      "name": "TEST horizontal 7",
+      "cards": [
+        {
+          "name": "TEST card 1",
+          "commands": [
+            "L",
+            "R",
+            "S",
+            "S"
+          ],
+          "id": "slot_7_card_1"
+        },
+        {
+          "name": "TEST card 2",
+          "commands": [
+            "R",
+            "L",
+            "C",
+            "S"
+          ],
+          "id": "slot_7_card_2"
+        },
+        {
+          "name": "TEST card 3",
+          "commands": [
+            "S",
+            "L",
+            "R",
+            "S"
+          ],
+          "id": "slot_7_card_3"
+        }
+      ],
+      "placeholder": true,
+      "id": "slot_7"
+    },
+    {
+      "role": "center",
+      "name": "TEST center 8",
+      "cards": [
+        {
+          "name": "TEST card 1",
+          "commands": [
+            "U",
+            "D",
+            "S",
+            "S"
+          ],
+          "id": "slot_8_card_1"
+        },
+        {
+          "name": "TEST card 2",
+          "commands": [
+            "D",
+            "U",
+            "C",
+            "S"
+          ],
+          "id": "slot_8_card_2"
+        },
+        {
+          "name": "TEST card 3",
+          "commands": [
+            "S",
+            "U",
+            "D",
+            "S"
+          ],
+          "id": "slot_8_card_3"
+        }
+      ],
+      "placeholder": true,
+      "id": "slot_8"
+    },
+    {
+      "role": "center",
+      "name": "TEST center 9",
+      "cards": [
+        {
+          "name": "TEST card 1",
+          "commands": [
+            "U",
+            "D",
+            "S",
+            "S"
+          ],
+          "id": "slot_9_card_1"
+        },
+        {
+          "name": "TEST card 2",
+          "commands": [
+            "D",
+            "U",
+            "C",
+            "S"
+          ],
+          "id": "slot_9_card_2"
+        },
+        {
+          "name": "TEST card 3",
+          "commands": [
+            "S",
+            "U",
+            "D",
+            "S"
+          ],
+          "id": "slot_9_card_3"
+        }
+      ],
+      "placeholder": true,
+      "id": "slot_9"
+    }
+  ]
+}
