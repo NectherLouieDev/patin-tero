@@ -4,8 +4,8 @@ extends RefCounted
 const DATA_PATH := "res://resources/characters/test_roster.json"
 const ALLOWED := {
 	"runner": ["F", "L", "R", "DL", "DR", "S", "T"],
-	"horizontal": ["L", "R", "U", "D", "S", "C"],
-	"center": ["L", "R", "U", "D", "S", "C"]
+	"horizontal": ["L", "R", "S", "C"],
+	"center": ["U", "D", "S", "C"]
 }
 
 var definitions: Array[Dictionary] = []
@@ -24,17 +24,29 @@ func load_definitions() -> String:
 	if not parsed is Dictionary or not parsed.has("definitions"):
 		return "Invalid roster data"
 	definitions.clear()
+	var ids: Dictionary = {}
+	var visual_keys: Dictionary = {}
+	var card_ids: Dictionary = {}
+	var patterns: Dictionary = {}
 	for entry in parsed.definitions:
 		var error := validate_definition(entry)
 		if error != "":
 			return error
+		if ids.has(entry.id) or visual_keys.has(entry.visual_key): return "Duplicate character identity or visual"
+		ids[entry.id] = true
+		visual_keys[entry.visual_key] = true
+		for card in entry.cards:
+			var pattern: String = ",".join(card.commands)
+			if card_ids.has(card.id) or patterns.has(pattern): return "Duplicate signature card identity or pattern"
+			card_ids[card.id] = true
+			patterns[pattern] = true
 		definitions.append(entry)
 	if definitions.size() != 9:
 		return "Expected nine definitions"
 	return ""
 
 func validate_definition(entry: Dictionary) -> String:
-	if not entry.has("id") or not entry.has("name") or not entry.has("role") or not entry.has("cards"):
+	if not entry.has("id") or not entry.has("name") or not entry.has("role") or not entry.has("cards") or not entry.has("visual_key"):
 		return "Missing character fields"
 	if not ALLOWED.has(entry.role) or entry.cards.size() != 3:
 		return "Invalid role or card count: %s" % entry.id

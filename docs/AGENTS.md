@@ -31,7 +31,7 @@ This document defines the development standards and architectural requirements t
 
 Build a complete, playable, testable MVP in Godot 4.
 
-Development must follow seven sequential milestones.
+Development must follow the sequential milestone roadmap in Section 10.
 
 Every milestone must produce:
 
@@ -532,7 +532,10 @@ All essential gameplay actions must work with mouse and keyboard.
 
 ## 10. Milestone-Driven Development
 
-Implement milestones in order.
+Implement milestones in order, following the revised playable roadmap in `docs/GDD.md`.
+The GDD is authoritative for game design and confirmed gameplay rules; this section
+defines the development workflow and expands the roadmap with separate bot-opponent,
+player-facing UI, replay/polish, and final validation milestones.
 
 ### Milestone 1 — Deterministic Grid Simulation
 
@@ -589,36 +592,30 @@ Manual acceptance tests:
 
 **Pass condition:** Card execution is correct and deterministic.
 
-### Milestone 3 — 3D Arena and Deployment
+### Milestone 3 — Roster, Bench, and Merging
 
-**Deliverable:** Playable dual-arena planning scene.
+**Deliverable:** Runnable roster management scene with nine visible bench slots.
 
 Required features:
 
-- Two persistent 3D arenas.
-- Slightly isometric camera.
-- Valid deployment anchors.
-- Character selection.
-- Drag-and-drop deployment.
-- Invalid drop recovery.
-- Bench interaction.
-- Single-unit preview.
+- Character ownership and nine-slot capacity.
+- Three-copy merge into the next star level, up to three stars.
+- Clear merge and transaction feedback.
+- Configurable, visibly provisional merge survivor and configuration-inheritance policy until approved.
 
 Manual acceptance tests:
 
-1. Deploy a runner.
-2. Deploy horizontal guards.
-3. Deploy a center guard.
-4. Attempt invalid placements.
-5. Return a unit to the bench.
-6. Preview a unit's moveset.
-7. Start a battle without replacing the arena scenes.
+1. Add characters until all nine bench slots are occupied.
+2. Attempt a tenth non-merging addition and confirm no state changes.
+3. Add three identical same-star copies and verify one next-star character remains.
+4. Verify no merge exceeds three stars.
+5. Inspect retained deployment/card state and confirm the configured provisional policy.
 
-**Pass condition:** All deployment operations behave predictably.
+**Pass condition:** Capacity and merge results are correct, deterministic, and non-destructive on failure.
 
-### Milestone 4 — Economy and Roster
+### Milestone 4 — Economy and Shop
 
-**Deliverable:** Functional shop and roster interface.
+**Deliverable:** Runnable shop and transaction scene integrated with the roster from Milestone 3.
 
 Required features:
 
@@ -626,10 +623,9 @@ Required features:
 - Five shop offers.
 - Two-coin reroll.
 - Character purchases.
-- Nine-slot bench.
-- Three-copy merging.
-- Star upgrades.
+- Bench-capacity integration, including valid merges that free capacity.
 - Atomic transactions.
+- Seeded, reproducible offer generation with configurable, visibly provisional balance values.
 
 Manual acceptance tests:
 
@@ -637,101 +633,170 @@ Manual acceptance tests:
 2. Verify coin deduction.
 3. Reroll the shop.
 4. Verify the two-coin cost.
-5. Merge three identical characters.
-6. Upgrade to three stars.
-7. Fill the bench.
-8. Attempt an invalid purchase.
-9. Verify rejected transactions change nothing.
+5. Fill the bench and verify a purchase is rejected unless a valid merge frees capacity.
+6. Attempt an invalid purchase and confirm both balance and roster stay unchanged.
+7. Repeat shop generation with the same seed and verify identical offers.
 
 **Pass condition:** Economy and roster data remain valid.
 
-### Milestone 5 — Match and Tournament
+### Milestone 5 — Formation Planning and Lock
 
-**Deliverable:** Playable eight-player Survival League.
+**Deliverable:** Runnable planning scene with two persistent arena views, bench, deployment anchors, card editor, preview, and lock action.
 
 Required features:
 
-- Two arena simulations per match.
-- Match results.
-- Tournament points.
-- Pairings.
-- Standings.
-- Elimination.
-- Championship.
-- Champion presentation.
-
-Use deterministic simulated opponents or simple predefined formations for testing.
-
-Do not introduce complex opponent AI unless explicitly approved.
+- Role-specific deployment limits and anchors.
+- Character drag-and-drop deployment and invalid-drop recovery.
+- Card selection and ordering within star-level capacity.
+- Formation validation and immutable lock snapshot.
+- Keep undecided center-line geometry configurable and visibly provisional.
 
 Manual acceptance tests:
 
-1. Start an eight-player tournament.
-2. Complete a dual-arena match.
-3. Verify match scoring.
-4. Verify tournament points.
-5. Advance through 8 → 6 → 4 → 2.
-6. Confirm the championship shop is disabled.
-7. Complete the championship.
-8. Verify one champion is declared.
+1. Deploy valid roles to valid anchors.
+2. Try wrong-role, occupied, and over-limit placements and confirm rejection.
+3. Configure and reorder cards within star capacity.
+4. Preview a unit and its moveset.
+5. Lock a valid formation and inspect the snapshot.
+6. Attempt edits after locking and confirm the snapshot is unchanged.
 
-**Pass condition:** A complete tournament runs without manual state modification.
+**Pass condition:** Valid formations lock, invalid formations do not, and both arena views remain present.
 
-### Milestone 6 — Replay and UI Polish
+### Milestone 6 — Dual-Arena Match and Results
 
-**Deliverable:** Player-facing UI with replay functionality.
+**Deliverable:** Runnable match scene that starts both arenas, shows their progress, and displays the match score.
 
 Required features:
 
-- Match results.
-- Standings.
-- Replay recording.
-- Replay loading.
-- Play/pause/restart.
-- Determinism verification.
-- Basic settings.
-- UI scaling.
+- Start from locked formation snapshots and keep each arena's mutable state isolated.
+- Fixed-step simulation with visual interpolation that cannot affect authoritative results.
+- Results from both arenas and 2–0, 1–1, or 0–2 scoring.
+- Finalize the match exactly once after both arenas resolve.
+- Replay capture or verification foundation.
 
 Manual acceptance tests:
 
-1. Complete a match.
-2. Open its replay.
-3. Play and pause the replay.
-4. Restart playback.
-5. Verify replay results match the original.
-6. Inspect results and standings.
-7. Test at 1920×1080.
-8. Test at 1280×720.
+1. Start a prepared match and observe both arenas run from locked snapshots.
+2. Confirm each arena resolves independently and scoring waits for both.
+3. Exercise fixtures for 2–0, 1–1, and 0–2 results.
+4. Repeat an identical seeded match and compare results.
+5. Change visual playback speed and confirm the authoritative result is unchanged.
 
-**Pass condition:** Replay results match and UI remains usable.
+**Pass condition:** Arena states remain isolated; match results finalize once and deterministically.
 
-### Milestone 7 — Testing and Balancing
+### Milestone 7 — Single-Player Bot Opponents
 
-**Deliverable:** Stable playable MVP build.
+**Deliverable:** Deterministic bot participants that can fill tournament slots and play through the same game systems as the player.
 
 Required features:
 
-- Regression tests.
-- Simulation verification.
-- Economy validation.
-- Tournament validation.
-- Usability improvements.
-- Bug fixes.
-- Balance testing.
+- Fill unoccupied tournament participant slots with bots so the eight-player tournament can progress.
+- Generate valid bot roster, formation, deployment, and card-order choices from available game data.
+- Keep bot decisions simple, documented, and deterministic for a given seed and tournament state.
+- Provide valid inputs to the roster, shop, formation, and match systems; do not bypass their validation.
+- Support resolving bot-versus-bot matches and retaining results for standings and eliminations.
+- Do not introduce complex or adaptive opponent AI unless explicitly approved.
+
+Manual acceptance tests:
+
+1. Start an eight-player single-player tournament and confirm unused participant slots are filled with bots.
+2. Inspect a bot's generated roster, formation, deployment, and card order; confirm each choice is valid.
+3. Repeat with the same seed and state and verify the bot choices match.
+4. Run a player-versus-bot match and verify it uses the normal match systems.
+5. Resolve a bot-versus-bot match and verify its result is retained correctly.
+6. Repeat with the same seed and state and verify outcomes are reproducible.
+
+**Pass condition:** Bot choices are valid and reproducible, and bot match results are available to tournament progression.
+
+### Milestone 8 — Tournament Survival Loop and Championship
+
+**Deliverable:** Runnable end-to-end eight-player tournament from setup through champion presentation.
+
+Required features:
+
+- Tournament stages, pairings, planning/shop/matches/results, standings, and configured tiebreaks.
+- Bot participation from Milestone 7 where needed to fill the tournament.
+- Eliminations through 8 → 6 → 4 → 2 → 1.
+- Championship and champion presentation.
+- Configurable and visibly provisional policies for unresolved tournament rules.
+
+Manual acceptance tests:
+
+1. Start a fresh eight-player tournament and complete its stages.
+2. Inspect results and standings after each stage.
+3. Verify participant counts reach 8, 6, 4, 2, then 1.
+4. Trigger a tie and inspect the configured tiebreak.
+5. Complete the championship and verify one champion is declared.
+6. Start a fresh tournament and confirm prior session state does not carry over.
+
+**Pass condition:** Tournament transitions follow the displayed rules, stage counts are correct, and one champion is declared.
+
+### Milestone 9 — Player-Facing UI Implementation
+
+**Deliverable:** Complete, navigable player-facing interface for the playable game loop.
+
+Earlier milestones may use functional developer test scenes; this milestone connects those completed systems into the intended player-facing flow.
+
+Required features:
+
+- Main navigation and tournament setup.
+- Player-facing roster/bench, shop, formation planning, battle observation, match results, standings, and championship screens.
+- Connect UI actions to authoritative systems through their public interfaces; UI must not mutate game state directly.
+- Mouse and keyboard support, readable feedback, and essential flows without debug-only controls.
+- Keep the two arena views present through planning and battle.
+
+Manual acceptance tests:
+
+1. Navigate from tournament setup through roster/shop, formation, battle, results, and standings.
+2. Complete each essential action using the player-facing interface.
+3. Verify invalid actions show clear feedback and do not mutate state.
+4. Confirm the interface reflects authoritative balances, roster, formations, and results.
+
+**Pass condition:** The full tournament loop is usable through player-facing screens without source edits or debug controls.
+
+### Milestone 10 — Replay Playback and UI Polish
+
+**Deliverable:** Replay viewing and a polished, resolution-flexible interface.
+
+Required features:
+
+- Replay recording and loading for completed matches.
+- Play, pause, and restart controls.
+- Verification that replay results match the original deterministic match.
+- Basic settings and UI scaling.
+- Usability and presentation polish without changing authoritative gameplay rules.
+
+Manual acceptance tests:
+
+1. Complete a match and open its replay.
+2. Play, pause, and restart playback.
+3. Verify replay results match the original.
+4. Inspect results and standings during the replay flow.
+5. Test at 1920×1080 and 1280×720.
+
+**Pass condition:** Replays reproduce match results and the interface remains usable at supported resolutions.
+
+### Milestone 11 — Testing, Balancing, and Stable MVP
+
+**Deliverable:** Stable playable MVP build with no known progression-blocking bugs.
+
+Required features:
+
+- Regression testing across simulation, character data, roster, economy, formations, matches, bots, and tournament progression.
+- Simulation, economy, and tournament verification.
+- Usability improvements and bug fixes.
+- Balance testing using configurable values; unresolved design values remain clearly provisional.
 
 Manual acceptance tests:
 
 1. Complete at least three full tournaments.
-2. Test multiple formations.
-3. Test different equipped cards.
-4. Verify repeatability.
-5. Test invalid purchases.
-6. Test full bench conditions.
-7. Test invalid formations.
-8. Verify no duplicate tournament points.
-9. Verify a new tournament resets session state.
+2. Test multiple formations and equipped card configurations.
+3. Verify repeatability with identical initial state and seed.
+4. Test invalid purchases, full bench conditions, and invalid formations.
+5. Verify no duplicate tournament points and that a new tournament resets session state.
+6. Confirm there are no known progression-blocking bugs.
 
-**Pass condition:** All critical tests pass with no known progression-blocking bugs.
+**Pass condition:** Critical automated and manual checks pass, repeated runs are deterministic, and the MVP can be completed without progression blockers.
 
 ---
 
@@ -744,9 +809,13 @@ Use filenames such as:
 ```text
 scenes/debug/simulation_test.tscn
 scenes/debug/moveset_test.tscn
-scenes/debug/deployment_test.tscn
+scenes/debug/roster_test.tscn
 scenes/debug/economy_test.tscn
+scenes/debug/formation_test.tscn
+scenes/debug/match_test.tscn
+scenes/debug/bot_test.tscn
 scenes/debug/tournament_test.tscn
+scenes/debug/ui_test.tscn
 scenes/debug/replay_test.tscn
 ```
 

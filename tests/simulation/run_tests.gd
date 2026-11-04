@@ -41,7 +41,7 @@ func _patrol_and_tag() -> void:
 	_check("same-cell tag resolves", sim.result == "GUARD_WIN" and sim.units[1].tagged)
 
 func _round_trip_and_repeatability() -> void:
-	var config: Array[Dictionary] = [_unit("r", "runner", Vector2i(0, 0), ["F", "F", "F", "F", "F", "F", "F", "U", "U", "U", "U", "U", "U", "U"])]
+	var config: Array[Dictionary] = [_unit("r", "runner", Vector2i(0, 0), ["F", "F", "F", "F", "F", "F", "F", "F", "F", "F", "F", "F", "F", "F"])]
 	var sim = Simulation.new()
 	sim.initialize(config)
 	_check("round trip wins", sim.run_until_finished(200) == "RUNNER_WIN" and sim.tick == 140)

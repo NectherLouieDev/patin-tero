@@ -2,261 +2,267 @@
   "definitions": [
     {
       "role": "runner",
-      "name": "TEST runner 1",
+      "name": "TEST Habulin",
       "cards": [
         {
-          "name": "TEST card 1",
+          "name": "TEST Direct Advance",
           "commands": [
             "F",
-            "S",
             "F",
-            "S"
+            "S",
+            "F"
           ],
           "id": "slot_1_card_1"
         },
         {
-          "name": "TEST card 2",
+          "name": "TEST Forward Rhythm",
           "commands": [
-            "L",
-            "R",
             "F",
-            "S"
+            "S",
+            "F",
+            "F"
           ],
           "id": "slot_1_card_2"
         },
         {
-          "name": "TEST card 3",
+          "name": "TEST Return Sprint",
           "commands": [
-            "DR",
-            "L",
             "F",
-            "T"
+            "DR",
+            "F",
+            "F"
           ],
           "id": "slot_1_card_3"
         }
       ],
       "placeholder": true,
-      "id": "slot_1"
+      "id": "slot_1",
+      "visual_key": "slot_1"
     },
     {
       "role": "runner",
-      "name": "TEST runner 2",
+      "name": "TEST Liksi",
       "cards": [
         {
-          "name": "TEST card 1",
+          "name": "TEST Zigzag",
           "commands": [
-            "F",
-            "S",
-            "F",
-            "S"
+            "DL",
+            "R",
+            "DR",
+            "L"
           ],
           "id": "slot_2_card_1"
         },
         {
-          "name": "TEST card 2",
+          "name": "TEST Iwas",
           "commands": [
-            "L",
-            "R",
+            "S",
+            "DL",
             "F",
-            "S"
+            "R"
           ],
           "id": "slot_2_card_2"
         },
         {
-          "name": "TEST card 3",
+          "name": "TEST Paliko",
           "commands": [
+            "R",
             "DR",
             "L",
-            "F",
-            "T"
+            "F"
           ],
           "id": "slot_2_card_3"
         }
       ],
       "placeholder": true,
-      "id": "slot_2"
+      "id": "slot_2",
+      "visual_key": "slot_2"
     },
     {
       "role": "runner",
-      "name": "TEST runner 3",
+      "name": "TEST Palusot",
       "cards": [
         {
-          "name": "TEST card 1",
+          "name": "TEST Lane Switch",
           "commands": [
+            "R",
             "F",
-            "S",
-            "F",
-            "S"
+            "L",
+            "F"
           ],
           "id": "slot_3_card_1"
         },
         {
-          "name": "TEST card 2",
+          "name": "TEST Side Step",
           "commands": [
             "L",
-            "R",
             "F",
+            "R",
             "S"
           ],
           "id": "slot_3_card_2"
         },
         {
-          "name": "TEST card 3",
+          "name": "TEST Cross Pattern",
           "commands": [
             "DR",
             "L",
-            "F",
-            "T"
+            "DL",
+            "R"
           ],
           "id": "slot_3_card_3"
         }
       ],
       "placeholder": true,
-      "id": "slot_3"
+      "id": "slot_3",
+      "visual_key": "slot_3"
     },
     {
       "role": "runner",
-      "name": "TEST runner 4",
+      "name": "TEST Tukso",
       "cards": [
         {
-          "name": "TEST card 1",
+          "name": "TEST Taunt Step",
           "commands": [
+            "T",
             "F",
-            "S",
-            "F",
-            "S"
+            "R",
+            "F"
           ],
           "id": "slot_4_card_1"
         },
         {
-          "name": "TEST card 2",
+          "name": "TEST Delayed Advance",
           "commands": [
-            "L",
-            "R",
+            "S",
             "F",
-            "S"
+            "T",
+            "F"
           ],
           "id": "slot_4_card_2"
         },
         {
-          "name": "TEST card 3",
+          "name": "TEST Bait and Move",
           "commands": [
-            "DR",
-            "L",
             "F",
-            "T"
+            "T",
+            "DL",
+            "F"
           ],
           "id": "slot_4_card_3"
         }
       ],
       "placeholder": true,
-      "id": "slot_4"
+      "id": "slot_4",
+      "visual_key": "slot_4"
     },
     {
       "role": "horizontal",
-      "name": "TEST horizontal 5",
+      "name": "TEST Harang",
       "cards": [
         {
-          "name": "TEST card 1",
+          "name": "TEST Standard Patrol",
           "commands": [
             "L",
             "R",
             "S",
-            "S"
+            "R"
           ],
           "id": "slot_5_card_1"
         },
         {
-          "name": "TEST card 2",
+          "name": "TEST Wide Sweep",
           "commands": [
             "R",
+            "R",
             "L",
-            "C",
-            "S"
+            "L"
           ],
           "id": "slot_5_card_2"
         },
         {
-          "name": "TEST card 3",
+          "name": "TEST Return Patrol",
           "commands": [
-            "S",
             "L",
+            "S",
             "R",
-            "S"
+            "R"
           ],
           "id": "slot_5_card_3"
         }
       ],
       "placeholder": true,
-      "id": "slot_5"
+      "id": "slot_5",
+      "visual_key": "slot_5"
     },
     {
       "role": "horizontal",
-      "name": "TEST horizontal 6",
+      "name": "TEST Bantay",
       "cards": [
         {
-          "name": "TEST card 1",
+          "name": "TEST Hold Position",
           "commands": [
-            "L",
-            "R",
             "S",
-            "S"
+            "S",
+            "L",
+            "R"
           ],
           "id": "slot_6_card_1"
         },
         {
-          "name": "TEST card 2",
+          "name": "TEST Short Patrol",
           "commands": [
             "R",
+            "S",
             "L",
-            "C",
             "S"
           ],
           "id": "slot_6_card_2"
         },
         {
-          "name": "TEST card 3",
+          "name": "TEST Delayed Block",
           "commands": [
             "S",
             "L",
-            "R",
-            "S"
+            "S",
+            "R"
           ],
           "id": "slot_6_card_3"
         }
       ],
       "placeholder": true,
-      "id": "slot_6"
+      "id": "slot_6",
+      "visual_key": "slot_6"
     },
     {
       "role": "horizontal",
-      "name": "TEST horizontal 7",
+      "name": "TEST Kapitan",
       "cards": [
         {
-          "name": "TEST card 1",
+          "name": "TEST Aggressive Sweep",
           "commands": [
+            "R",
             "L",
             "R",
-            "S",
-            "S"
+            "L"
           ],
           "id": "slot_7_card_1"
         },
         {
-          "name": "TEST card 2",
+          "name": "TEST Scare Patrol",
           "commands": [
+            "C",
             "R",
             "L",
-            "C",
             "S"
           ],
           "id": "slot_7_card_2"
         },
         {
-          "name": "TEST card 3",
+          "name": "TEST Interception Rhythm",
           "commands": [
-            "S",
             "L",
+            "C",
             "R",
             "S"
           ],
@@ -264,83 +270,86 @@
         }
       ],
       "placeholder": true,
-      "id": "slot_7"
+      "id": "slot_7",
+      "visual_key": "slot_7"
     },
     {
       "role": "center",
-      "name": "TEST center 8",
+      "name": "TEST Sentro",
       "cards": [
         {
-          "name": "TEST card 1",
+          "name": "TEST Vertical Patrol",
           "commands": [
             "U",
             "D",
             "S",
-            "S"
+            "D"
           ],
           "id": "slot_8_card_1"
         },
         {
-          "name": "TEST card 2",
+          "name": "TEST Center Hold",
           "commands": [
-            "D",
+            "S",
             "U",
-            "C",
-            "S"
+            "S",
+            "D"
           ],
           "id": "slot_8_card_2"
         },
         {
-          "name": "TEST card 3",
+          "name": "TEST Vertical Return",
           "commands": [
-            "S",
-            "U",
             "D",
-            "S"
+            "D",
+            "U",
+            "U"
           ],
           "id": "slot_8_card_3"
         }
       ],
       "placeholder": true,
-      "id": "slot_8"
+      "id": "slot_8",
+      "visual_key": "slot_8"
     },
     {
       "role": "center",
-      "name": "TEST center 9",
+      "name": "TEST Tanod",
       "cards": [
         {
-          "name": "TEST card 1",
+          "name": "TEST Timed Patrol",
           "commands": [
             "U",
-            "D",
             "S",
-            "S"
+            "D",
+            "C"
           ],
           "id": "slot_9_card_1"
         },
         {
-          "name": "TEST card 2",
+          "name": "TEST Scare Line",
           "commands": [
-            "D",
-            "U",
             "C",
+            "U",
+            "D",
             "S"
           ],
           "id": "slot_9_card_2"
         },
         {
-          "name": "TEST card 3",
+          "name": "TEST Vertical Interception",
           "commands": [
+            "D",
             "S",
             "U",
-            "D",
-            "S"
+            "U"
           ],
           "id": "slot_9_card_3"
         }
       ],
       "placeholder": true,
-      "id": "slot_9"
+      "id": "slot_9",
+      "visual_key": "slot_9"
     }
   ]
 }

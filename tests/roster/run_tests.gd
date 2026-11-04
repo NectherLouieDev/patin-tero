@@ -7,10 +7,15 @@ func _initialize() -> void:
 	var model = Model.new()
 	check("load nine definitions", model.load_definitions() == "" and model.definitions.size() == 9)
 	var counts := {"runner": 0, "horizontal": 0, "center": 0}
+	var identities: Dictionary = {}
+	var patterns: Dictionary = {}
 	for definition in model.definitions:
 		counts[definition.role] += 1
 		check("valid %s" % definition.id, model.validate_definition(definition) == "" and definition.placeholder)
+		identities[definition.name] = true
+		for card in definition.cards: patterns[",".join(card.commands)] = true
 	check("role distribution", counts.runner == 4 and counts.horizontal == 3 and counts.center == 2)
+	check("nine provisional identities and 27 distinct card patterns", identities.size() == 9 and patterns.size() == 27)
 	check("one star rejects second card", model.equip(1) == "Card capacity reached")
 	check("two stars allow second card", model.set_star(2) == "" and model.equip(1) == "")
 	check("duplicate rejected", model.equip(1) == "Card already equipped")

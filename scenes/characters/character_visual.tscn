@@ -1,0 +1,206 @@
+[gd_scene load_steps=18 format=3]
+
+[sub_resource type="BoxMesh" id="fin"]
+size = Vector3(0.14, 0.48, 0.36)
+
+[sub_resource type="BoxMesh" id="wide"]
+size = Vector3(0.7, 0.22, 0.16)
+
+[sub_resource type="CylinderMesh" id="post"]
+top_radius = 0.09
+bottom_radius = 0.09
+height = 0.55
+
+[sub_resource type="SphereMesh" id="orb"]
+radius = 0.15
+height = 0.3
+
+[sub_resource type="CylinderMesh" id="disc"]
+top_radius = 0.24
+bottom_radius = 0.24
+height = 0.07
+
+[sub_resource type="BoxMesh" id="wing"]
+size = Vector3(0.29, 0.13, 0.48)
+
+[sub_resource type="SphereMesh" id="star"]
+radius = 0.085
+height = 0.17
+
+[sub_resource type="StandardMaterial3D" id="accent0"]
+albedo_color = Color(0.98, 0.82, 0.15, 1)
+
+[sub_resource type="StandardMaterial3D" id="accent1"]
+albedo_color = Color(0.25, 0.94, 0.94, 1)
+
+[sub_resource type="StandardMaterial3D" id="accent2"]
+albedo_color = Color(0.96, 0.52, 0.19, 1)
+
+[sub_resource type="StandardMaterial3D" id="accent3"]
+albedo_color = Color(0.85, 0.42, 0.95, 1)
+
+[sub_resource type="StandardMaterial3D" id="accent4"]
+albedo_color = Color(0.98, 0.58, 0.31, 1)
+
+[sub_resource type="StandardMaterial3D" id="accent5"]
+albedo_color = Color(0.94, 0.9, 0.5, 1)
+
+[sub_resource type="StandardMaterial3D" id="accent6"]
+albedo_color = Color(0.93, 0.25, 0.33, 1)
+
+[sub_resource type="StandardMaterial3D" id="accent7"]
+albedo_color = Color(0.38, 0.75, 1.0, 1)
+
+[sub_resource type="StandardMaterial3D" id="accent8"]
+albedo_color = Color(0.7, 0.54, 0.99, 1)
+
+[sub_resource type="StandardMaterial3D" id="gold"]
+albedo_color = Color(1, 0.86, 0.1, 1)
+emission_enabled = true
+emission = Color(0.4, 0.3, 0.02, 1)
+
+[node name="CharacterVisual" type="Node3D"]
+
+[node name="Variant0" type="Node3D" parent="."]
+visible = false
+
+[node name="Cap" type="MeshInstance3D" parent="Variant0"]
+position = Vector3(0, 0.55, 0)
+mesh = SubResource("disc")
+material_override = SubResource("accent0")
+
+[node name="Dash" type="MeshInstance3D" parent="Variant0"]
+position = Vector3(0, 0.39, 0.15)
+mesh = SubResource("fin")
+material_override = SubResource("accent0")
+
+[node name="Variant1" type="Node3D" parent="."]
+visible = false
+
+[node name="LeftFin" type="MeshInstance3D" parent="Variant1"]
+position = Vector3(-0.3, 0.16, 0)
+mesh = SubResource("wing")
+material_override = SubResource("accent1")
+
+[node name="RightFin" type="MeshInstance3D" parent="Variant1"]
+position = Vector3(0.3, 0.16, 0)
+mesh = SubResource("wing")
+material_override = SubResource("accent1")
+
+[node name="Variant2" type="Node3D" parent="."]
+visible = false
+
+[node name="Crossbar" type="MeshInstance3D" parent="Variant2"]
+position = Vector3(0, 0.15, 0.12)
+mesh = SubResource("wide")
+material_override = SubResource("accent2")
+
+[node name="TopOrb" type="MeshInstance3D" parent="Variant2"]
+position = Vector3(0, 0.54, 0)
+mesh = SubResource("orb")
+material_override = SubResource("accent2")
+
+[node name="Variant3" type="Node3D" parent="."]
+visible = false
+
+[node name="Antenna" type="MeshInstance3D" parent="Variant3"]
+position = Vector3(0, 0.51, 0)
+mesh = SubResource("post")
+material_override = SubResource("accent3")
+
+[node name="Lure" type="MeshInstance3D" parent="Variant3"]
+position = Vector3(0, 0.83, 0)
+mesh = SubResource("orb")
+material_override = SubResource("accent3")
+
+[node name="Variant4" type="Node3D" parent="."]
+visible = false
+
+[node name="Shield" type="MeshInstance3D" parent="Variant4"]
+position = Vector3(0, 0.13, 0.38)
+mesh = SubResource("wide")
+material_override = SubResource("accent4")
+
+[node name="Helmet" type="MeshInstance3D" parent="Variant4"]
+position = Vector3(0, 0.55, 0)
+mesh = SubResource("disc")
+material_override = SubResource("accent4")
+
+[node name="Variant5" type="Node3D" parent="."]
+visible = false
+
+[node name="LeftPost" type="MeshInstance3D" parent="Variant5"]
+position = Vector3(-0.3, 0.1, 0)
+mesh = SubResource("post")
+material_override = SubResource("accent5")
+
+[node name="RightPost" type="MeshInstance3D" parent="Variant5"]
+position = Vector3(0.3, 0.1, 0)
+mesh = SubResource("post")
+material_override = SubResource("accent5")
+
+[node name="Variant6" type="Node3D" parent="."]
+visible = false
+
+[node name="Crest" type="MeshInstance3D" parent="Variant6"]
+position = Vector3(0, 0.58, 0)
+mesh = SubResource("fin")
+material_override = SubResource("accent6")
+
+[node name="Armor" type="MeshInstance3D" parent="Variant6"]
+position = Vector3(0, 0.25, 0.25)
+mesh = SubResource("wide")
+material_override = SubResource("accent6")
+
+[node name="Variant7" type="Node3D" parent="."]
+visible = false
+
+[node name="Beacon" type="MeshInstance3D" parent="Variant7"]
+position = Vector3(0, 0.52, 0)
+mesh = SubResource("post")
+material_override = SubResource("accent7")
+
+[node name="Lens" type="MeshInstance3D" parent="Variant7"]
+position = Vector3(0, 0.85, 0)
+mesh = SubResource("orb")
+material_override = SubResource("accent7")
+
+[node name="Variant8" type="Node3D" parent="."]
+visible = false
+
+[node name="LowerBand" type="MeshInstance3D" parent="Variant8"]
+position = Vector3(0, 0.05, 0)
+mesh = SubResource("disc")
+material_override = SubResource("accent8")
+
+[node name="UpperBand" type="MeshInstance3D" parent="Variant8"]
+position = Vector3(0, 0.48, 0)
+mesh = SubResource("disc")
+material_override = SubResource("accent8")
+
+[node name="Signal" type="MeshInstance3D" parent="Variant8"]
+position = Vector3(0, 0.76, 0)
+mesh = SubResource("orb")
+material_override = SubResource("accent8")
+
+[node name="TeamBadge" type="MeshInstance3D" parent="."]
+position = Vector3(0, -0.43, 0)
+mesh = SubResource("disc")
+
+[node name="Star1" type="MeshInstance3D" parent="."]
+visible = false
+position = Vector3(-0.22, 0.94, 0)
+mesh = SubResource("star")
+material_override = SubResource("gold")
+
+[node name="Star2" type="MeshInstance3D" parent="."]
+visible = false
+position = Vector3(0, 0.94, 0)
+mesh = SubResource("star")
+material_override = SubResource("gold")
+
+[node name="Star3" type="MeshInstance3D" parent="."]
+visible = false
+position = Vector3(0.22, 0.94, 0)
+mesh = SubResource("star")
+material_override = SubResource("gold")

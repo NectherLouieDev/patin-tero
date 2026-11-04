@@ -1,0 +1,557 @@
+[gd_scene load_steps=20 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/arena_visual.gd" id="1"]
+[ext_resource type="PackedScene" path="res://scenes/characters/character_visual.tscn" id="2"]
+
+[sub_resource type="BoxMesh" id="tile"]
+size = Vector3(0.94, 0.1, 0.94)
+
+[sub_resource type="BoxMesh" id="anchor"]
+size = Vector3(0.78, 0.04, 0.78)
+
+[sub_resource type="CapsuleMesh" id="runner"]
+
+[sub_resource type="CylinderMesh" id="guard"]
+
+[sub_resource type="StandardMaterial3D" id="dark"]
+albedo_color = Color(0.22, 0.31, 0.34, 1)
+
+[sub_resource type="StandardMaterial3D" id="light"]
+albedo_color = Color(0.32, 0.42, 0.44, 1)
+
+[sub_resource type="StandardMaterial3D" id="runner_color"]
+albedo_color = Color(0.18, 0.83, 0.36, 1)
+
+[sub_resource type="StandardMaterial3D" id="guard_color"]
+albedo_color = Color(0.91, 0.31, 0.2, 1)
+
+[sub_resource type="StandardMaterial3D" id="anchor_color"]
+albedo_color = Color(0.95, 0.78, 0.19, 0.7)
+
+[sub_resource type="BoxMesh" id="heading"]
+size = Vector3(0.18, 0.12, 0.34)
+
+[sub_resource type="BoxMesh" id="preview"]
+size = Vector3(0.42, 0.06, 0.42)
+
+[sub_resource type="StandardMaterial3D" id="heading_color"]
+albedo_color = Color(1, 1, 0.9, 1)
+
+[sub_resource type="StandardMaterial3D" id="preview_color"]
+albedo_color = Color(0.1, 0.8, 1, 0.7)
+transparency = 1
+
+[sub_resource type="StandardMaterial3D" id="tag_color"]
+albedo_color = Color(1, 0.05, 0.45, 1)
+emission_enabled = true
+emission = Color(1, 0.05, 0.45, 1)
+
+[sub_resource type="StandardMaterial3D" id="taunt_color"]
+albedo_color = Color(0.1, 0.75, 1, 1)
+emission_enabled = true
+emission = Color(0.1, 0.75, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="scare_color"]
+albedo_color = Color(0.7, 0.12, 0.95, 1)
+emission_enabled = true
+emission = Color(0.7, 0.12, 0.95, 1)
+
+[sub_resource type="StandardMaterial3D" id="victory_color"]
+albedo_color = Color(1, 0.9, 0.2, 1)
+emission_enabled = true
+emission = Color(0.7, 0.45, 0.04, 1)
+
+[node name="Arena" type="Node3D"]
+script = ExtResource("1")
+tag_material = SubResource("tag_color")
+taunt_material = SubResource("taunt_color")
+scare_material = SubResource("scare_color")
+victory_material = SubResource("victory_color")
+
+[node name="Tiles" type="Node3D" parent="."]
+[node name="Tile_0_0" type="MeshInstance3D" parent="Tiles"]
+position = Vector3(-1.5, 0, -3.5)
+mesh = SubResource("tile")
+material_override = SubResource("dark")
+
+[node name="Tile_1_0" type="MeshInstance3D" parent="Tiles"]
+position = Vector3(-0.5, 0, -3.5)
+mesh = SubResource("tile")
+material_override = SubResource("light")
+
+[node name="Tile_2_0" type="MeshInstance3D" parent="Tiles"]
+position = Vector3(0.5, 0, -3.5)
+mesh = SubResource("tile")
+material_override = SubResource("dark")
+
+[node name="Tile_3_0" type="MeshInstance3D" parent="Tiles"]
+position = Vector3(1.5, 0, -3.5)
+mesh = SubResource("tile")
+material_override = SubResource("light")
+
+[node name="Tile_0_1" type="MeshInstance3D" parent="Tiles"]
+position = Vector3(-1.5, 0, -2.5)
+mesh = SubResource("tile")
+material_override = SubResource("light")
+
+[node name="Tile_1_1" type="MeshInstance3D" parent="Tiles"]
+position = Vector3(-0.5, 0, -2.5)
+mesh = SubResource("tile")
+material_override = SubResource("dark")
+
+[node name="Tile_2_1" type="MeshInstance3D" parent="Tiles"]
+position = Vector3(0.5, 0, -2.5)
+mesh = SubResource("tile")
+material_override = SubResource("light")
+
+[node name="Tile_3_1" type="MeshInstance3D" parent="Tiles"]
+position = Vector3(1.5, 0, -2.5)
+mesh = SubResource("tile")
+material_override = SubResource("dark")
+
+[node name="Tile_0_2" type="MeshInstance3D" parent="Tiles"]
+position = Vector3(-1.5, 0, -1.5)
+mesh = SubResource("tile")
+material_override = SubResource("dark")
+
+[node name="Tile_1_2" type="MeshInstance3D" parent="Tiles"]
+position = Vector3(-0.5, 0, -1.5)
+mesh = SubResource("tile")
+material_override = SubResource("light")
+
+[node name="Tile_2_2" type="MeshInstance3D" parent="Tiles"]
+position = Vector3(0.5, 0, -1.5)
+mesh = SubResource("tile")
+material_override = SubResource("dark")
+
+[node name="Tile_3_2" type="MeshInstance3D" parent="Tiles"]
+position = Vector3(1.5, 0, -1.5)
+mesh = SubResource("tile")
+material_override = SubResource("light")
+
+[node name="Tile_0_3" type="MeshInstance3D" parent="Tiles"]
+position = Vector3(-1.5, 0, -0.5)
+mesh = SubResource("tile")
+material_override = SubResource("light")
+
+[node name="Tile_1_3" type="MeshInstance3D" parent="Tiles"]
+position = Vector3(-0.5, 0, -0.5)
+mesh = SubResource("tile")
+material_override = SubResource("dark")
+
+[node name="Tile_2_3" type="MeshInstance3D" parent="Tiles"]
+position = Vector3(0.5, 0, -0.5)
+mesh = SubResource("tile")
+material_override = SubResource("light")
+
+[node name="Tile_3_3" type="MeshInstance3D" parent="Tiles"]
+position = Vector3(1.5, 0, -0.5)
+mesh = SubResource("tile")
+material_override = SubResource("dark")
+
+[node name="Tile_0_4" type="MeshInstance3D" parent="Tiles"]
+position = Vector3(-1.5, 0, 0.5)
+mesh = SubResource("tile")
+material_override = SubResource("dark")
+
+[node name="Tile_1_4" type="MeshInstance3D" parent="Tiles"]
+position = Vector3(-0.5, 0, 0.5)
+mesh = SubResource("tile")
+material_override = SubResource("light")
+
+[node name="Tile_2_4" type="MeshInstance3D" parent="Tiles"]
+position = Vector3(0.5, 0, 0.5)
+mesh = SubResource("tile")
+material_override = SubResource("dark")
+
+[node name="Tile_3_4" type="MeshInstance3D" parent="Tiles"]
+position = Vector3(1.5, 0, 0.5)
+mesh = SubResource("tile")
+material_override = SubResource("light")
+
+[node name="Tile_0_5" type="MeshInstance3D" parent="Tiles"]
+position = Vector3(-1.5, 0, 1.5)
+mesh = SubResource("tile")
+material_override = SubResource("light")
+
+[node name="Tile_1_5" type="MeshInstance3D" parent="Tiles"]
+position = Vector3(-0.5, 0, 1.5)
+mesh = SubResource("tile")
+material_override = SubResource("dark")
+
+[node name="Tile_2_5" type="MeshInstance3D" parent="Tiles"]
+position = Vector3(0.5, 0, 1.5)
+mesh = SubResource("tile")
+material_override = SubResource("light")
+
+[node name="Tile_3_5" type="MeshInstance3D" parent="Tiles"]
+position = Vector3(1.5, 0, 1.5)
+mesh = SubResource("tile")
+material_override = SubResource("dark")
+
+[node name="Tile_0_6" type="MeshInstance3D" parent="Tiles"]
+position = Vector3(-1.5, 0, 2.5)
+mesh = SubResource("tile")
+material_override = SubResource("dark")
+
+[node name="Tile_1_6" type="MeshInstance3D" parent="Tiles"]
+position = Vector3(-0.5, 0, 2.5)
+mesh = SubResource("tile")
+material_override = SubResource("light")
+
+[node name="Tile_2_6" type="MeshInstance3D" parent="Tiles"]
+position = Vector3(0.5, 0, 2.5)
+mesh = SubResource("tile")
+material_override = SubResource("dark")
+
+[node name="Tile_3_6" type="MeshInstance3D" parent="Tiles"]
+position = Vector3(1.5, 0, 2.5)
+mesh = SubResource("tile")
+material_override = SubResource("light")
+
+[node name="Tile_0_7" type="MeshInstance3D" parent="Tiles"]
+position = Vector3(-1.5, 0, 3.5)
+mesh = SubResource("tile")
+material_override = SubResource("light")
+
+[node name="Tile_1_7" type="MeshInstance3D" parent="Tiles"]
+position = Vector3(-0.5, 0, 3.5)
+mesh = SubResource("tile")
+material_override = SubResource("dark")
+
+[node name="Tile_2_7" type="MeshInstance3D" parent="Tiles"]
+position = Vector3(0.5, 0, 3.5)
+mesh = SubResource("tile")
+material_override = SubResource("light")
+
+[node name="Tile_3_7" type="MeshInstance3D" parent="Tiles"]
+position = Vector3(1.5, 0, 3.5)
+mesh = SubResource("tile")
+material_override = SubResource("dark")
+
+[node name="RunnerAnchors" type="Node3D" parent="."]
+
+[node name="Anchor_0_0" type="MeshInstance3D" parent="RunnerAnchors"]
+position = Vector3(-1.5, 0.08, -3.5)
+mesh = SubResource("anchor")
+material_override = SubResource("anchor_color")
+
+[node name="Anchor_1_0" type="MeshInstance3D" parent="RunnerAnchors"]
+position = Vector3(-0.5, 0.08, -3.5)
+mesh = SubResource("anchor")
+material_override = SubResource("anchor_color")
+
+[node name="Anchor_2_0" type="MeshInstance3D" parent="RunnerAnchors"]
+position = Vector3(0.5, 0.08, -3.5)
+mesh = SubResource("anchor")
+material_override = SubResource("anchor_color")
+
+[node name="Anchor_3_0" type="MeshInstance3D" parent="RunnerAnchors"]
+position = Vector3(1.5, 0.08, -3.5)
+mesh = SubResource("anchor")
+material_override = SubResource("anchor_color")
+
+[node name="GuardAnchors" type="Node3D" parent="."]
+
+[node name="Anchor_0_2" type="MeshInstance3D" parent="GuardAnchors"]
+position = Vector3(-1.5, 0.08, -1.5)
+mesh = SubResource("anchor")
+material_override = SubResource("anchor_color")
+
+[node name="Anchor_1_2" type="MeshInstance3D" parent="GuardAnchors"]
+position = Vector3(-0.5, 0.08, -1.5)
+mesh = SubResource("anchor")
+material_override = SubResource("anchor_color")
+
+[node name="Anchor_2_2" type="MeshInstance3D" parent="GuardAnchors"]
+position = Vector3(0.5, 0.08, -1.5)
+mesh = SubResource("anchor")
+material_override = SubResource("anchor_color")
+
+[node name="Anchor_3_2" type="MeshInstance3D" parent="GuardAnchors"]
+position = Vector3(1.5, 0.08, -1.5)
+mesh = SubResource("anchor")
+material_override = SubResource("anchor_color")
+
+[node name="Anchor_0_4" type="MeshInstance3D" parent="GuardAnchors"]
+position = Vector3(-1.5, 0.08, 0.5)
+mesh = SubResource("anchor")
+material_override = SubResource("anchor_color")
+
+[node name="Anchor_1_4" type="MeshInstance3D" parent="GuardAnchors"]
+position = Vector3(-0.5, 0.08, 0.5)
+mesh = SubResource("anchor")
+material_override = SubResource("anchor_color")
+
+[node name="Anchor_2_4" type="MeshInstance3D" parent="GuardAnchors"]
+position = Vector3(0.5, 0.08, 0.5)
+mesh = SubResource("anchor")
+material_override = SubResource("anchor_color")
+
+[node name="Anchor_3_4" type="MeshInstance3D" parent="GuardAnchors"]
+position = Vector3(1.5, 0.08, 0.5)
+mesh = SubResource("anchor")
+material_override = SubResource("anchor_color")
+
+[node name="Anchor_0_6" type="MeshInstance3D" parent="GuardAnchors"]
+position = Vector3(-1.5, 0.08, 2.5)
+mesh = SubResource("anchor")
+material_override = SubResource("anchor_color")
+
+[node name="Anchor_1_6" type="MeshInstance3D" parent="GuardAnchors"]
+position = Vector3(-0.5, 0.08, 2.5)
+mesh = SubResource("anchor")
+material_override = SubResource("anchor_color")
+
+[node name="Anchor_2_6" type="MeshInstance3D" parent="GuardAnchors"]
+position = Vector3(0.5, 0.08, 2.5)
+mesh = SubResource("anchor")
+material_override = SubResource("anchor_color")
+
+[node name="Anchor_3_6" type="MeshInstance3D" parent="GuardAnchors"]
+position = Vector3(1.5, 0.08, 2.5)
+mesh = SubResource("anchor")
+material_override = SubResource("anchor_color")
+
+[node name="CenterAnchor" type="MeshInstance3D" parent="."]
+position = Vector3(0, 0.12, -0.5)
+mesh = SubResource("anchor")
+material_override = SubResource("anchor_color")
+
+[node name="Units" type="Node3D" parent="."]
+
+[node name="Unit0" type="MeshInstance3D" parent="Units"]
+visible = false
+mesh = SubResource("runner")
+material_override = SubResource("runner_color")
+
+[node name="Unit1" type="MeshInstance3D" parent="Units"]
+visible = false
+mesh = SubResource("guard")
+material_override = SubResource("guard_color")
+
+[node name="Unit2" type="MeshInstance3D" parent="Units"]
+visible = false
+mesh = SubResource("runner")
+material_override = SubResource("runner_color")
+
+[node name="Unit3" type="MeshInstance3D" parent="Units"]
+visible = false
+mesh = SubResource("guard")
+material_override = SubResource("guard_color")
+
+[node name="Unit4" type="MeshInstance3D" parent="Units"]
+visible = false
+mesh = SubResource("runner")
+material_override = SubResource("runner_color")
+
+[node name="Unit5" type="MeshInstance3D" parent="Units"]
+visible = false
+mesh = SubResource("guard")
+material_override = SubResource("guard_color")
+
+[node name="Unit6" type="MeshInstance3D" parent="Units"]
+visible = false
+mesh = SubResource("runner")
+material_override = SubResource("runner_color")
+
+[node name="Unit7" type="MeshInstance3D" parent="Units"]
+visible = false
+mesh = SubResource("guard")
+material_override = SubResource("guard_color")
+
+[node name="Unit8" type="MeshInstance3D" parent="Units"]
+visible = false
+mesh = SubResource("runner")
+material_override = SubResource("runner_color")
+
+[node name="Unit9" type="MeshInstance3D" parent="Units"]
+visible = false
+mesh = SubResource("guard")
+material_override = SubResource("guard_color")
+
+[node name="Unit10" type="MeshInstance3D" parent="Units"]
+visible = false
+mesh = SubResource("runner")
+material_override = SubResource("runner_color")
+
+[node name="Unit11" type="MeshInstance3D" parent="Units"]
+visible = false
+mesh = SubResource("guard")
+material_override = SubResource("guard_color")
+
+[node name="Unit12" type="MeshInstance3D" parent="Units"]
+visible = false
+mesh = SubResource("runner")
+material_override = SubResource("runner_color")
+
+[node name="Unit13" type="MeshInstance3D" parent="Units"]
+visible = false
+mesh = SubResource("guard")
+material_override = SubResource("guard_color")
+
+[node name="Unit14" type="MeshInstance3D" parent="Units"]
+visible = false
+mesh = SubResource("runner")
+material_override = SubResource("runner_color")
+
+[node name="Unit15" type="MeshInstance3D" parent="Units"]
+visible = false
+mesh = SubResource("guard")
+material_override = SubResource("guard_color")
+
+
+[node name="Heading" type="MeshInstance3D" parent="Units/Unit0"]
+position = Vector3(0, 0.43, 0.38)
+mesh = SubResource("heading")
+material_override = SubResource("heading_color")
+
+[node name="Heading" type="MeshInstance3D" parent="Units/Unit1"]
+position = Vector3(0, 0.43, 0.38)
+mesh = SubResource("heading")
+material_override = SubResource("heading_color")
+
+[node name="Heading" type="MeshInstance3D" parent="Units/Unit2"]
+position = Vector3(0, 0.43, 0.38)
+mesh = SubResource("heading")
+material_override = SubResource("heading_color")
+
+[node name="Heading" type="MeshInstance3D" parent="Units/Unit3"]
+position = Vector3(0, 0.43, 0.38)
+mesh = SubResource("heading")
+material_override = SubResource("heading_color")
+
+[node name="Heading" type="MeshInstance3D" parent="Units/Unit4"]
+position = Vector3(0, 0.43, 0.38)
+mesh = SubResource("heading")
+material_override = SubResource("heading_color")
+
+[node name="Heading" type="MeshInstance3D" parent="Units/Unit5"]
+position = Vector3(0, 0.43, 0.38)
+mesh = SubResource("heading")
+material_override = SubResource("heading_color")
+
+[node name="Heading" type="MeshInstance3D" parent="Units/Unit6"]
+position = Vector3(0, 0.43, 0.38)
+mesh = SubResource("heading")
+material_override = SubResource("heading_color")
+
+[node name="Heading" type="MeshInstance3D" parent="Units/Unit7"]
+position = Vector3(0, 0.43, 0.38)
+mesh = SubResource("heading")
+material_override = SubResource("heading_color")
+
+[node name="Heading" type="MeshInstance3D" parent="Units/Unit8"]
+position = Vector3(0, 0.43, 0.38)
+mesh = SubResource("heading")
+material_override = SubResource("heading_color")
+
+[node name="Heading" type="MeshInstance3D" parent="Units/Unit9"]
+position = Vector3(0, 0.43, 0.38)
+mesh = SubResource("heading")
+material_override = SubResource("heading_color")
+
+[node name="Heading" type="MeshInstance3D" parent="Units/Unit10"]
+position = Vector3(0, 0.43, 0.38)
+mesh = SubResource("heading")
+material_override = SubResource("heading_color")
+
+[node name="Heading" type="MeshInstance3D" parent="Units/Unit11"]
+position = Vector3(0, 0.43, 0.38)
+mesh = SubResource("heading")
+material_override = SubResource("heading_color")
+
+[node name="Heading" type="MeshInstance3D" parent="Units/Unit12"]
+position = Vector3(0, 0.43, 0.38)
+mesh = SubResource("heading")
+material_override = SubResource("heading_color")
+
+[node name="Heading" type="MeshInstance3D" parent="Units/Unit13"]
+position = Vector3(0, 0.43, 0.38)
+mesh = SubResource("heading")
+material_override = SubResource("heading_color")
+
+[node name="Heading" type="MeshInstance3D" parent="Units/Unit14"]
+position = Vector3(0, 0.43, 0.38)
+mesh = SubResource("heading")
+material_override = SubResource("heading_color")
+
+[node name="Heading" type="MeshInstance3D" parent="Units/Unit15"]
+position = Vector3(0, 0.43, 0.38)
+mesh = SubResource("heading")
+material_override = SubResource("heading_color")
+
+[node name="Visuals" parent="Units/Unit0" instance=ExtResource("2")]
+
+[node name="Visuals" parent="Units/Unit1" instance=ExtResource("2")]
+
+[node name="Visuals" parent="Units/Unit2" instance=ExtResource("2")]
+
+[node name="Visuals" parent="Units/Unit3" instance=ExtResource("2")]
+
+[node name="Visuals" parent="Units/Unit4" instance=ExtResource("2")]
+
+[node name="Visuals" parent="Units/Unit5" instance=ExtResource("2")]
+
+[node name="Visuals" parent="Units/Unit6" instance=ExtResource("2")]
+
+[node name="Visuals" parent="Units/Unit7" instance=ExtResource("2")]
+
+[node name="Visuals" parent="Units/Unit8" instance=ExtResource("2")]
+
+[node name="Visuals" parent="Units/Unit9" instance=ExtResource("2")]
+
+[node name="Visuals" parent="Units/Unit10" instance=ExtResource("2")]
+
+[node name="Visuals" parent="Units/Unit11" instance=ExtResource("2")]
+
+[node name="Visuals" parent="Units/Unit12" instance=ExtResource("2")]
+
+[node name="Visuals" parent="Units/Unit13" instance=ExtResource("2")]
+
+[node name="Visuals" parent="Units/Unit14" instance=ExtResource("2")]
+
+[node name="Visuals" parent="Units/Unit15" instance=ExtResource("2")]
+
+[node name="PreviewMarkers" type="Node3D" parent="."]
+
+[node name="Marker0" type="MeshInstance3D" parent="PreviewMarkers"]
+visible = false
+mesh = SubResource("preview")
+material_override = SubResource("preview_color")
+
+[node name="Marker1" type="MeshInstance3D" parent="PreviewMarkers"]
+visible = false
+mesh = SubResource("preview")
+material_override = SubResource("preview_color")
+
+[node name="Marker2" type="MeshInstance3D" parent="PreviewMarkers"]
+visible = false
+mesh = SubResource("preview")
+material_override = SubResource("preview_color")
+
+[node name="Marker3" type="MeshInstance3D" parent="PreviewMarkers"]
+visible = false
+mesh = SubResource("preview")
+material_override = SubResource("preview_color")
+
+[node name="Marker4" type="MeshInstance3D" parent="PreviewMarkers"]
+visible = false
+mesh = SubResource("preview")
+material_override = SubResource("preview_color")
+
+[node name="Marker5" type="MeshInstance3D" parent="PreviewMarkers"]
+visible = false
+mesh = SubResource("preview")
+material_override = SubResource("preview_color")
+
+[node name="Marker6" type="MeshInstance3D" parent="PreviewMarkers"]
+visible = false
+mesh = SubResource("preview")
+material_override = SubResource("preview_color")
+
+[node name="Marker7" type="MeshInstance3D" parent="PreviewMarkers"]
+visible = false
+mesh = SubResource("preview")
+material_override = SubResource("preview_color")
+

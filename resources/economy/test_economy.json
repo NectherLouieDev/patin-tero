@@ -3,6 +3,67 @@
   "starting_coins": 20,
   "bench_capacity": 9,
   "reroll_cost": 2,
-  "prices": [3, 3, 3, 3, 3, 3, 3, 3, 3],
-  "weights": [1, 1, 1, 1, 1, 1, 1, 1, 1]
+  "round_income": 5,
+  "merge_policy": "prefer_deployed_oldest_id",
+  "bonus_2_0": 1,
+  "shop_offer_count": 5,
+  "allow_duplicate_offers": true,
+  "merge_requirement": 3,
+  "max_star_level": 3,
+  "characters": [
+    {
+      "id": "slot_1",
+      "cost": 3,
+      "weight": 1,
+      "available": true
+    },
+    {
+      "id": "slot_2",
+      "cost": 3,
+      "weight": 1,
+      "available": true
+    },
+    {
+      "id": "slot_3",
+      "cost": 3,
+      "weight": 1,
+      "available": true
+    },
+    {
+      "id": "slot_4",
+      "cost": 3,
+      "weight": 1,
+      "available": true
+    },
+    {
+      "id": "slot_5",
+      "cost": 3,
+      "weight": 1,
+      "available": true
+    },
+    {
+      "id": "slot_6",
+      "cost": 3,
+      "weight": 1,
+      "available": true
+    },
+    {
+      "id": "slot_7",
+      "cost": 3,
+      "weight": 1,
+      "available": true
+    },
+    {
+      "id": "slot_8",
+      "cost": 3,
+      "weight": 1,
+      "available": true
+    },
+    {
+      "id": "slot_9",
+      "cost": 3,
+      "weight": 1,
+      "available": true
+    }
+  ]
 }

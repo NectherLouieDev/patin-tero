@@ -490,7 +490,17 @@ Every milestone must produce a runnable Godot scene/build, visible behavior, exa
 
 **Pass:** Both arenas are isolated, result finalizes once, scores are correct and deterministic, and view speed cannot change outcome. Automate scoring, isolation, replay, and repeatability tests.
 
-### Milestone 7 — Tournament Survival Loop and Championship
+### Milestone 7 — Single-Player Bot Opponents
+
+**Playable deliverable:** Inspectable deterministic bot participants that fill the seven open slots of a single-player tournament and supply locked formations to the normal match system.
+
+**Features:** seeded shop purchases, persistent bot rosters, validated card selection and deployment, recorded stage decisions, player-versus-bot and bot-versus-bot matches, and reproducible results. Keep bot behavior simple and provisional; do not add adaptive AI.
+
+**Manual acceptance:** (1) Inspect a bot's purchased roster, selected cards, and valid anchors. (2) Repeat the same seed and compare decisions. (3) Play a player-versus-bot and a bot-versus-bot match. (4) Repeat the seed and compare both results. (5) Confirm standings retain the matches.
+
+**Pass:** Seven valid bot participants fill the tournament, identical seed and state reproduce decisions and match outcomes, and bots use existing shop, formation, and match validation.
+
+### Milestone 8 — Tournament Survival Loop and Championship
 
 **Playable deliverable:** Runnable end-to-end eight-player tournament from setup through champion presentation.
 

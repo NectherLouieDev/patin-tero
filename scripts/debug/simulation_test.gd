@@ -60,7 +60,7 @@ func _reset_scenario() -> void:
 			guard.patrol_row = 2
 			guard.commands = ["S"]
 		4:
-			runner.commands = ["F", "F", "F", "F", "F", "F", "F", "U", "U", "U", "U", "U", "U", "U"]
+			runner.commands = ["F", "F", "F", "F", "F", "F", "F", "F", "F", "F", "F", "F", "F", "F"]
 			guard.commands = ["S"]
 			guard.pos = Vector2i(3, 6)
 			guard.patrol_row = 6

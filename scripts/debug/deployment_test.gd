@@ -55,9 +55,10 @@ func _input(event: InputEvent) -> void:
 		if drop.is_empty():
 			status.text = "Invalid drop: character remains in its previous location."
 		else:
-			var error: String = formation.place(selected, drop.arena, drop.cell)
+			var error: String = _place_selected(drop.arena, drop.cell)
 			status.text = "Deployed to %s %s" % [drop.arena, drop.cell] if error == "" else "Invalid drop: " + error
 		_update_view()
+
 	elif not battling:
 		var hit: Dictionary = _pick_anchor(event.position)
 		for index in formation.placements:
@@ -67,6 +68,9 @@ func _input(event: InputEvent) -> void:
 				bench.select(index)
 				_update_view()
 				break
+
+func _place_selected(arena: String, cell: Vector2i) -> String:
+	return formation.place(selected, arena, cell)
 
 func _pick_anchor(screen_position: Vector2) -> Dictionary:
 	var origin: Vector3 = camera.project_ray_origin(screen_position)
